@@ -20,9 +20,9 @@ var speed = 40; //decrease this to increase speed
 window.onload = function () {
     ctx = canvas.getContext("2d");
     hud = new HUD(canvas.width, canvas.height);
-    blocks.push(new JBlock(board));
+    generateBlock();
 
-    hud.draw(ctx)
+    hud.draw(ctx);
 
     window.onkeyup = function (e) {
         var key = e.keyCode ? e.keyCode : e.which;
@@ -49,6 +49,8 @@ window.onload = function () {
             console.log("drawing happening");
             if (blocks[blocks.length - 1].bottom < board[0].length - 2) {
             blocks[blocks.length - 1].gravity();
+            } else {
+                generateBlock();
             }
             currentFrame = 0;
         } else {
@@ -67,6 +69,27 @@ window.onload = function () {
 
     }
     game();
+}
+
+function generateBlock() {
+    // 6 blocks total
+    // generate randomly for now implement look ahead later
+    type = Math.floor(Math.random() * 7);
+    if (type === 0) {
+        blocks.push(new IBlock(board));
+    } else if (type === 1) {
+        blocks.push(new JBlock(board));
+    } else if (type === 2) {
+        blocks.push(new LBlock(board));
+    } else if (type === 3) {
+        blocks.push(new OBlock(board));
+    } else if (type === 4) {
+        blocks.push(new SBlock(board));
+    } else if (type === 5) {
+        blocks.push(new TBlock(board));
+    } else {
+        blocks.push(new ZBlock(board));
+    }
 }
 
 function reset() {
