@@ -3,7 +3,8 @@ function block(board, colour) {
     this.topShade = "";
     this.sideShade = "";
     this.bottomShade= "";
-    this.blocks = [];
+    this.positions = [[]];
+    this.position = 0;
     this.bottom = 0;
 
     colourRGB = hexToRgb(this.colour);
@@ -103,22 +104,34 @@ function block(board, colour) {
         // if on bottom of board no longer move
     };
 
-    this.rotate = function (board) {
-        //rotate shape
+    this.rotate = function (direction) {
+        if (direction === 0) {
+            if (this.position - 1 < 0) {
+                this.position = this.positions.length - 1;
+            } else {
+                this.position--;
+            }
+        } else {
+            if (this.position + 1 > this.positions.length - 1) {
+                this.position = 0;
+            } else {
+                this.position++;
+            }
+        }
     };
 
     this.draw = function (ctx) {
         //ctx.fillStyle = this.colour;
-        for (var i = 0; i < this.blocks.length; i++) {
+        for (var i = 0; i < this.positions[this.position].length; i++) {
             ctx.fillStyle = this.colour;
-            ctx.fillRect((this.blocks[i][0] * 40) - 39, (this.blocks[i][1] * 33.33) - 32.33, 38, 31.33);
+            ctx.fillRect((this.positions[this.position][i][0] * 40) - 39, (this.positions[this.position][i][1] * 33.33) - 32.33, 38, 31.33);
             ctx.fillStyle = this.topShade;
-            ctx.fillRect((this.blocks[i][0] * 40) - 39, (this.blocks[i][1] * 33) - 32.33, 38, 3);
+            ctx.fillRect((this.positions[this.position][i][0] * 40) - 39, (this.positions[this.position][i][1] * 33) - 32.33, 38, 3);
             ctx.fillStyle = this.sideShade;
-            ctx.fillRect((this.blocks[i][0] * 40) - 4, (this.blocks[i][1] * 33.33) - 32.33, 3, 31.33);
-            ctx.fillRect((this.blocks[i][0] * 40) - 39, (this.blocks[i][1] * 33.33) - 32.33, 3, 32);
+            ctx.fillRect((this.positions[this.position][i][0] * 40) - 4, (this.positions[this.position][i][1] * 33.33) - 32.33, 3, 31.33);
+            ctx.fillRect((this.positions[this.position][i][0] * 40) - 39, (this.positions[this.position][i][1] * 33.33) - 32.33, 3, 32);
             ctx.fillStyle = this.bottomShade;
-            ctx.fillRect((this.blocks[i][0] * 40) - 39, (this.blocks[i][1] * 33.33) - 3, 38, 3);
+            ctx.fillRect((this.positions[this.position][i][0] * 40) - 39, (this.positions[this.position][i][1] * 33.33) - 3, 38, 3);
 
             
 

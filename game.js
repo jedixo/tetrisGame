@@ -20,7 +20,7 @@ var speed = 30; //decrease this to increase speed
 window.onload = function () {
     ctx = canvas.getContext("2d");
     hud = new HUD(canvas.width, canvas.height);
-    blocks.push(new ZBlock(board));
+    blocks.push(new JBlock(board));
 
     hud.draw(ctx)
 
@@ -31,14 +31,12 @@ window.onload = function () {
             //direction = 'w';
             //go left
         } else if (key === 38) {
-            //direction = 'n';
-            //rotate left
+            blocks[blocks.length - 1].rotate(0);
         } else if (key === 39) {
             //direction = 'e';
             //go right
         } else if (key === 40) {
-            //direction = 's';
-            //rotate right
+            blocks[blocks.length - 1].rotate(1);
         } else if (key === 32) {
             //drop to bottom
         }
