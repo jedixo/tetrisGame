@@ -20,7 +20,7 @@ var speed = 30; //decrease this to increase speed
 window.onload = function () {
     ctx = canvas.getContext("2d");
     hud = new HUD(canvas.width, canvas.height);
-    blocks.push(new block(board));
+    blocks.push(new ZBlock(board));
 
     hud.draw(ctx)
 
