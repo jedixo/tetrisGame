@@ -1,6 +1,6 @@
 function JBlock(board) {
     block.call(this, board, "#0000F0");
-    this.blocks = [[4, 1], [4, 2], [5,2], [6,2]];
+    this.blocks = [[7, 1], [7, 2], [8,2], [9,2]];
     
 }
 

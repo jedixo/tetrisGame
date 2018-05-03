@@ -1,6 +1,6 @@
 function TBlock(board) {
     block.call(this, board, "#A000F0");
-    this.blocks = [[4, 2], [5, 2], [5,1], [6,2]];
+    this.blocks = [[7, 2], [8, 2], [8,1], [9,2]];
     
 }
 

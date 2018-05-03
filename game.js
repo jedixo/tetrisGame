@@ -3,10 +3,10 @@ var canvas = document.getElementById("tetrisCanvas");
 var hud;
 var blocks = [];
 var board = [];
-var boardLength = canvas.width / 20 + 1;
-
+var boardLength = canvas.width / 40 + 1;
+console.log(this.boardLength);
 for (var i = 0; i < boardLength; ++i) {
-    board[i] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    board[i] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 }
 
 var currentFrame = 0;
@@ -20,7 +20,7 @@ var speed = 30; //decrease this to increase speed
 window.onload = function () {
     ctx = canvas.getContext("2d");
     hud = new HUD(canvas.width, canvas.height);
-    blocks.push(new JBlock(board));
+    blocks.push(new ZBlock(board));
 
     hud.draw(ctx)
 

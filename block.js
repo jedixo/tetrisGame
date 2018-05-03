@@ -111,14 +111,14 @@ function block(board, colour) {
         //ctx.fillStyle = this.colour;
         for (var i = 0; i < this.blocks.length; i++) {
             ctx.fillStyle = this.colour;
-            ctx.fillRect((this.blocks[i][0] * 20) - 20, (this.blocks[i][1] * 20) - 20, 19, 19);
+            ctx.fillRect((this.blocks[i][0] * 40) - 39, (this.blocks[i][1] * 33.33) - 32.33, 38, 31.33);
             ctx.fillStyle = this.topShade;
-            ctx.fillRect((this.blocks[i][0] * 20) - 20, (this.blocks[i][1] * 20) - 20, 19, 2);
+            ctx.fillRect((this.blocks[i][0] * 40) - 39, (this.blocks[i][1] * 33) - 32.33, 38, 3);
             ctx.fillStyle = this.sideShade;
-            ctx.fillRect((this.blocks[i][0] * 20) - 3, (this.blocks[i][1] * 20) - 20, 2, 19);
-            ctx.fillRect((this.blocks[i][0] * 20) - 20, (this.blocks[i][1] * 20) - 20, 2, 19);
+            ctx.fillRect((this.blocks[i][0] * 40) - 4, (this.blocks[i][1] * 33.33) - 32.33, 3, 31.33);
+            ctx.fillRect((this.blocks[i][0] * 40) - 39, (this.blocks[i][1] * 33.33) - 32.33, 3, 32);
             ctx.fillStyle = this.bottomShade;
-            ctx.fillRect((this.blocks[i][0] * 20) - 20, (this.blocks[i][1] * 20)-3, 19, 2);
+            ctx.fillRect((this.blocks[i][0] * 40) - 39, (this.blocks[i][1] * 33.33) - 3, 38, 3);
 
             
 

@@ -1,6 +1,6 @@
 function LBlock(board) {
     block.call(this, board, "#F0A000");
-    this.blocks = [[6, 1], [4, 2], [5,2], [6,2]];
+    this.blocks = [[9, 1], [7, 2], [8,2], [9,2]];
 }
 
 LBlock.prototype = Object.create(block.prototype, {

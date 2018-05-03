@@ -17,7 +17,7 @@ function HUD(width, height) {
      */
     this.draw = function (ctx) {
         ctx.strokeStyle = this.colour;
-        for (var i = 0; i < canvas.width; i += 20) {
+        for (var i = 0; i < canvas.width; i += 40) {
             ctx.beginPath();
             ctx.moveTo(i, 0);
             ctx.lineTo(i, canvas.height);
@@ -26,7 +26,7 @@ function HUD(width, height) {
             ctx.stroke();
             ctx.stroke();
         }
-        for (var i = 0; i < canvas.height; i += 20) {
+        for (var i = 0; i < canvas.height; i += 33.33) {
             ctx.beginPath();
             ctx.lineTo(i, canvas.height);
             ctx.lineWidth = .2; 

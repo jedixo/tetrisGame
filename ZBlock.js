@@ -1,6 +1,6 @@
 function ZBlock(board) {
     block.call(this, board, "#F00000");
-    this.blocks = [[4, 1], [5, 1], [5,2], [6,2]];
+    this.blocks = [[7, 1], [8, 1], [8,2], [9,2]];
     
 }
 
