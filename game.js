@@ -10,7 +10,7 @@ for (var i = 0; i < boardLength; ++i) {
 }
 
 var currentFrame = 0;
-var speed = 30; //decrease this to increase speed
+var speed = 40; //decrease this to increase speed
 
 /**
  * main game loop
@@ -44,10 +44,15 @@ window.onload = function () {
 
     function game() {
 
-        if (currentFrame == speed) {
+        if (currentFrame === speed) {
             //control detection here and movement
+            console.log("drawing happening");
+            if (blocks[blocks.length - 1].bottom < board[0].length - 2) {
+            blocks[blocks.length - 1].gravity();
+            }
             currentFrame = 0;
         } else {
+            //blocks[blocks.length - 1].gravity();
             currentFrame++;
         }
         

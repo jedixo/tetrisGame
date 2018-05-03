@@ -104,6 +104,18 @@ function block(board, colour) {
         // if on bottom of board no longer move
     };
 
+    this.gravity = function () {
+        for (var i = 0; i < this.positions.length; i++) {
+           this.positions[i][0][1]++;
+           this.positions[i][1][1]++;
+           this.positions[i][2][1]++;
+           this.positions[i][3][1]++;
+           console.log(this.bottom);
+           
+        }
+        this.bottom++;
+    };
+
     this.rotate = function (direction) {
         if (direction === 0) {
             if (this.position - 1 < 0) {

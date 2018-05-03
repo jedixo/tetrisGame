@@ -23,18 +23,18 @@ function HUD(width, height) {
             ctx.lineTo(i, canvas.height);
             ctx.lineWidth = .2;
             ctx.moveTo(0, i);
-            ctx.stroke();
-            ctx.stroke();
+     //       ctx.stroke();
+      //      ctx.stroke();
         }
-        for (var i = 0; i < canvas.height; i += 33.33) {
+        for (var i = 0; i < canvas.height; i += 30) {
             ctx.beginPath();
             ctx.lineTo(i, canvas.height);
             ctx.lineWidth = .2; 
             ctx.moveTo(0, i);    
             ctx.lineTo(canvas.width, i);
             ctx.lineWidth = .2;
-            ctx.stroke();
-            ctx.stroke();
+        //    ctx.stroke();
+         //   ctx.stroke();
 
 
         }
