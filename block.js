@@ -35,7 +35,7 @@ function block(board, colour) {
            this.positions[i][1][1]++;
            this.positions[i][2][1]++;
            this.positions[i][3][1]++;
-           console.log(this.bottom);
+           //console.log(this.bottom);
            
         }
         this.bottom++;

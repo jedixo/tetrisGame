@@ -46,7 +46,7 @@ window.onload = function () {
 
         if (currentFrame === speed) {
             //control detection here and movement
-            console.log("drawing happening");
+            //console.log("drawing happening");
             if (blocks[blocks.length - 1].bottom < board[0].length - 2) {
             blocks[blocks.length - 1].gravity();
             } else {
