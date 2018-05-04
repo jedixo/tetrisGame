@@ -3,90 +3,27 @@ function block(board, colour) {
     this.topShade = [];
     this.sideShade = [];
     this.bottomShade= [];
+    ///this.shaders = [this.topShade, this.sideShade, this.bottomShade];
     this.positions = [[]];
     this.position = 0;
     this.bottom = 0;
 
-    //this.colour = [240,160,0];
 
-    //top shade
-    if (this.colour[0] === 0) {
-        this.topShade.push(this.colour[0] + 170);
-    } else if (this.colour[0] === 240) {
-        this.topShade.push(this.colour[0] + 11);
-    } else {
-        this.topShade.push(this.colour[0] + 67);
+    for (var c = 0; c < this.colour.length; c++) {
+        if (this.colour[c] === 0) {
+            this.topShade.push(this.colour[c] + 170);
+            this.sideShade.push(this.colour[c]);
+            this.bottomShade.push(this.colour[c]);
+        } else if (this.colour[c] === 240) {
+            this.topShade.push(this.colour[c] + 11);
+            this.sideShade.push(this.colour[c] - 24);
+            this.bottomShade.push(this.colour[c] - 120);
+        } else {
+            this.topShade.push(this.colour[c] + 67);
+            this.sideShade.push(this.colour[c] - 16);
+            this.bottomShade.push(this.colour[c] - 80);
+        }
     }
-    
-    if (this.colour[1] === 0) {
-        this.topShade.push(this.colour[1] + 170);
-    } else if (this.colour[1] === 240) {
-        this.topShade.push(this.colour[1] + 11);
-    } else {
-        this.topShade.push(this.colour[1] + 67);
-    }
-
-    if (this.colour[2] === 0) {
-        this.topShade.push(this.colour[2] + 170);
-    } else if (this.colour[2] === 240) {
-        this.topShade.push(this.colour[2] + 11);
-    } else {
-        this.topShade.push(this.colour[2] + 67);
-    }
-
-  
-
-    //side shade
-    if (this.colour[0] === 0) {
-        this.sideShade.push(this.colour[0]);
-    } else if (this.colour[0] === 240) {
-        this.sideShade.push(this.colour[0] - 24); 
-    } else {
-        this.sideShade.push(this.colour[0] - 16);
-    }
-
-    if (this.colour[1] === 0) {
-        this.sideShade.push(this.colour[1]);
-    } else if (this.colour[1] === 240) {
-        this.sideShade.push(this.colour[1] - 24); 
-    } else {
-        this.sideShade.push(this.colour[1] - 16); 
-    }
-
-    if (this.colour[2] === 0) {
-        this.sideShade.push(this.colour[2]);
-    } else if (this.colour[2] === 240) {
-        this.sideShade.push(this.colour[2] - 24); 
-    } else {
-        this.sideShade.push(this.colour[2] - 16);
-    }
-
-  
-    //bottom shade
-    if (this.colour[0] === 0) {
-        this.bottomShade.push(this.colour[0]);
-    } else if (this.colour[0] === 240) {
-        this.bottomShade.push(this.colour[0] - 120);
-    } else {
-        this.bottomShade.push(this.colour[0] - 80);
-    }
-
-    if (this.colour[1] === 0) {
-        this.bottomShade.push(this.colour[1]);
-    } else if (this.colour[1] === 240) {
-        this.bottomShade.push(this.colour[1] - 120);
-    } else {
-        this.bottomShade.push(this.colour[1] - 80);
-    }
-
-    if (this.colour[2] === 0) {
-        this.bottomShade.push(this.colour[2]);
-    } else if (this.colour[2] === 240) {
-        this.bottomShade.push(this.colour[2] - 120);
-    } else {
-        this.bottomShade.push(this.colour[2] - 80);
-    }
-    
 
     this.move = function (board, direction) {
         // if on bottom of board no longer move
