@@ -65,7 +65,7 @@ function block(board, colour) {
             ctx.fillRect((this.positions[this.position][i][0] * 40) - 39, (this.positions[this.position][i][1] * 33.33) - 32.33, 38, 31.33);
 
             ctx.fillStyle = "rgb(" + this.topShade[0] + ", " + this.topShade[1] + ", " + this.topShade[2] + ")";
-            ctx.fillRect((this.positions[this.position][i][0] * 40) - 39, (this.positions[this.position][i][1] * 33) - 32.33, 38, 3);
+            ctx.fillRect((this.positions[this.position][i][0] * 40) - 39, (this.positions[this.position][i][1] * 33.33) - 32.33, 38, 3);
 
             ctx.fillStyle = "rgb(" + this.sideShade[0] + ", " + this.sideShade[1] + ", " + this.sideShade[2] + ")";
             ctx.fillRect((this.positions[this.position][i][0] * 40) - 4, (this.positions[this.position][i][1] * 33.33) - 32.33, 3, 31.33);
