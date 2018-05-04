@@ -1,103 +1,91 @@
 function block(board, colour) {
-    this.colour = colour || '#FFF';
-    this.topShade = "";
-    this.sideShade = "";
-    this.bottomShade= "";
+    this.colour = colour || [240, 160, 0];
+    this.topShade = [];
+    this.sideShade = [];
+    this.bottomShade= [];
     this.positions = [[]];
     this.position = 0;
     this.bottom = 0;
 
-    colourRGB = hexToRgb(this.colour);
-    topRGB = colourRGB;
-    sideRGB = colourRGB;
-    bottomRGB = colourRGB;
+    //this.colour = [240,160,0];
 
     //top shade
-    if (colourRGB.r === 0) {
-        topRGB.r = topRGB.r + 179;
-    } else if (colourRGB.r === 240) {
-        topRGB.r = topRGB.r + 11;
+    if (this.colour[0] === 0) {
+        this.topShade.push(this.colour[0] + 170);
+    } else if (this.colour[0] === 240) {
+        this.topShade.push(this.colour[0] + 11);
     } else {
-        topRGB.r = topRGB.r + 67;
+        this.topShade.push(this.colour[0] + 67);
     }
     
-    if (colourRGB.g === 0) {
-        topRGB.g = topRGB.g + 179;
-    } else if (colourRGB.g === 240) {
-        topRGB.g = topRGB.g + 11;
+    if (this.colour[1] === 0) {
+        this.topShade.push(this.colour[1] + 170);
+    } else if (this.colour[1] === 240) {
+        this.topShade.push(this.colour[1] + 11);
     } else {
-        topRGB.g = topRGB.g + 67;
+        this.topShade.push(this.colour[1] + 67);
     }
 
-    if (colourRGB.b === 0) {
-        topRGB.b = topRGB.b + 179;
-    } else if (colourRGB.b === 240) {
-        topRGB.b = topRGB.b + 11;
+    if (this.colour[2] === 0) {
+        this.topShade.push(this.colour[2] + 170);
+    } else if (this.colour[2] === 240) {
+        this.topShade.push(this.colour[2] + 11);
     } else {
-        topRGB.b = topRGB.b + 67;
+        this.topShade.push(this.colour[2] + 67);
     }
 
-    this.topShade = rgbToHex(topRGB.r, topRGB.g, topRGB.b);
-
+  
 
     //side shade
-    if (colourRGB.r === 0) {
-        sideRGB.r = sideRGB.r;
-    } else if (colourRGB.r === 240) {
-        sideRGB.r = sideRGB.r - 24;
+    if (this.colour[0] === 0) {
+        this.sideShade.push(this.colour[0]);
+    } else if (this.colour[0] === 240) {
+        this.sideShade.push(this.colour[0] - 24); 
     } else {
-        sideRGB.r = sideRGB.r - 16;
+        this.sideShade.push(this.colour[0] - 16);
     }
 
-    if (colourRGB.g === 0) {
-        sideRGB.g = sideRGB.g;
-    } else if (colourRGB.g === 240) {
-        sideRGB.g = sideRGB.g - 24;
+    if (this.colour[1] === 0) {
+        this.sideShade.push(this.colour[1]);
+    } else if (this.colour[1] === 240) {
+        this.sideShade.push(this.colour[1] - 24); 
     } else {
-        sideRGB.g = sideRGB.g - 16;
+        this.sideShade.push(this.colour[1] - 16); 
     }
 
-    if (colourRGB.b === 0) {
-        sideRGB.b = sideRGB.b;
-    } else if (colourRGB.b === 240) {
-        sideRGB.b = sideRGB.b - 24;
+    if (this.colour[2] === 0) {
+        this.sideShade.push(this.colour[2]);
+    } else if (this.colour[2] === 240) {
+        this.sideShade.push(this.colour[2] - 24); 
     } else {
-        sideRGB.b = sideRGB.b - 16;
+        this.sideShade.push(this.colour[2] - 16);
     }
 
-    this.sideShade = rgbToHex(sideRGB.r, sideRGB.g, sideRGB.b);
-
+  
     //bottom shade
-    if (colourRGB.r === 0) {
-        bottomRGB.r = bottomRGB.r;
-    } else if (colourRGB.r === 240) {
-        bottomRGB.r = bottomRGB.r - 120;
+    if (this.colour[0] === 0) {
+        this.bottomShade.push(this.colour[0]);
+    } else if (this.colour[0] === 240) {
+        this.bottomShade.push(this.colour[0] - 120);
     } else {
-        bottomRGB.r = bottomRGB.r - 80;
+        this.bottomShade.push(this.colour[0] - 80);
     }
 
-    if (colourRGB.g === 0) {
-        bottomRGB.g = bottomRGB.g;
-    } else if (colourRGB.g === 240) {
-        bottomRGB.g = bottomRGB.g - 120;
+    if (this.colour[1] === 0) {
+        this.bottomShade.push(this.colour[1]);
+    } else if (this.colour[1] === 240) {
+        this.bottomShade.push(this.colour[1] - 120);
     } else {
-        bottomRGB.g = bottomRGB.g - 80;
+        this.bottomShade.push(this.colour[1] - 80);
     }
 
-    if (colourRGB.b === 0) {
-        bottomRGB.b = bottomRGB.b;
-    } else if (colourRGB.b === 240) {
-        bottomRGB.b = bottomRGB.b - 120;
+    if (this.colour[2] === 0) {
+        this.bottomShade.push(this.colour[2]);
+    } else if (this.colour[2] === 240) {
+        this.bottomShade.push(this.colour[2] - 120);
     } else {
-        bottomRGB.b = bottomRGB.b - 80;
+        this.bottomShade.push(this.colour[2] - 80);
     }
-
-
-    this.bottomShade = rgbToHex(bottomRGB.r, bottomRGB.g, bottomRGB.g);
-    console.log(this.topShade);
-    console.log(this.sideShade);
-    console.log(this.bottomShade);
-
     
 
     this.move = function (board, direction) {
@@ -133,48 +121,23 @@ function block(board, colour) {
     };
 
     this.draw = function (ctx) {
-        //ctx.fillStyle = this.colour;
+        
         for (var i = 0; i < this.positions[this.position].length; i++) {
-            ctx.fillStyle = this.colour;
+
+            ctx.fillStyle = "rgb(" + this.colour[0] + ", " + this.colour[1] + ", " + this.colour[2] + ")";
             ctx.fillRect((this.positions[this.position][i][0] * 40) - 39, (this.positions[this.position][i][1] * 33.33) - 32.33, 38, 31.33);
-            ctx.fillStyle = this.topShade;
+
+            ctx.fillStyle = "rgb(" + this.topShade[0] + ", " + this.topShade[1] + ", " + this.topShade[2] + ")";
             ctx.fillRect((this.positions[this.position][i][0] * 40) - 39, (this.positions[this.position][i][1] * 33) - 32.33, 38, 3);
-            ctx.fillStyle = this.sideShade;
+
+            ctx.fillStyle = "rgb(" + this.sideShade[0] + ", " + this.sideShade[1] + ", " + this.sideShade[2] + ")";
             ctx.fillRect((this.positions[this.position][i][0] * 40) - 4, (this.positions[this.position][i][1] * 33.33) - 32.33, 3, 31.33);
             ctx.fillRect((this.positions[this.position][i][0] * 40) - 39, (this.positions[this.position][i][1] * 33.33) - 32.33, 3, 32);
-            ctx.fillStyle = this.bottomShade;
+
+            ctx.fillStyle = "rgb(" + this.bottomShade[0] + ", " + this.bottomShade[1] + ", " + this.bottomShade[2] + ")";
             ctx.fillRect((this.positions[this.position][i][0] * 40) - 39, (this.positions[this.position][i][1] * 33.33) - 3, 38, 3);
-
-            
-
-
 
         }
     };
-
-    this.execute = function () {
-        console.log('PowerUp Execute');
-    }
-
-
-    function hexToRgb(hex) {
-        // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
-        var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
-        hex = hex.replace(shorthandRegex, function(m, r, g, b) {
-            return r + r + g + g + b + b;
-        });
-    
-        var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-        return result ? {
-            r: parseInt(result[1], 16),
-            g: parseInt(result[2], 16),
-            b: parseInt(result[3], 16)
-        } : null;
-    }
-
-    function rgbToHex(r, g, b) {
-        return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
-    }
-
 
 };

@@ -1,5 +1,5 @@
 function TBlock(board) {
-    block.call(this, board, "#A000F0");
+    block.call(this, board, [160, 0, 240]);
     this.positions = [[[7, 2], [8, 2], [8, 1], [9, 2]],
                       [[8, 1], [8, 2], [8, 3], [9, 2]],
                       [[7, 2], [8, 2], [8, 3], [9, 2]],

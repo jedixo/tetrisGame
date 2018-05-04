@@ -1,5 +1,5 @@
 function OBlock(board) {
-    block.call(this, board, "#F0F000");
+    block.call(this, board, [240, 240, 0]);
     this.positions = [[[7, 1], [7, 2], [8,2], [8,1]]];    
 }
 
