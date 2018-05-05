@@ -51,7 +51,7 @@ window.onload = function () {
             //control detection here and movement
             //console.log("drawing happening");
             if (blocks[blocks.length - 1].bottom < board[0].length - 2) {
-            blocks[blocks.length - 1].gravity();
+                blocks[blocks.length - 1].gravity();
             } else {
                 generateBlock();
             }
@@ -60,7 +60,7 @@ window.onload = function () {
             //blocks[blocks.length - 1].gravity();
             currentFrame++;
         }
-        
+
         ctx.fillStyle = "#000";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         hud.draw(ctx);
@@ -68,7 +68,7 @@ window.onload = function () {
             blocks[i].draw(ctx);
         }
         requestAnimationFrame(game);
-        
+
 
     }
     game();
