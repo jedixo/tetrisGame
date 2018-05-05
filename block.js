@@ -2,7 +2,7 @@ function block(board, colour) {
     this.colour = colour || [240, 160, 0];
     this.topShade = [];
     this.sideShade = [];
-    this.bottomShade= [];
+    this.bottomShade = [];
     ///this.shaders = [this.topShade, this.sideShade, this.bottomShade];
     this.positions = [[]];
     this.position = 0;
@@ -25,21 +25,49 @@ function block(board, colour) {
         }
     }
 
-    this.move = function (board, direction) {
-        // if on bottom of board no longer move
+    this.move = function (direction) {
+        if (direction === 0) {
+            //move left
+            for (var i = 0; i < this.positions.length; i++) {
+                this.positions[i][0][0]--;
+                this.positions[i][1][0]--;
+                this.positions[i][2][0]--;
+                this.positions[i][3][0]--;
+            }
+        } else {
+            for (var i = 0; i < this.positions.length; i++) {
+                this.positions[i][0][0]++;
+                this.positions[i][1][0]++;
+                this.positions[i][2][0]++;
+                this.positions[i][3][0]++;
+                //move right
+            }
+        }
     };
 
     this.gravity = function () {
         for (var i = 0; i < this.positions.length; i++) {
-           this.positions[i][0][1]++;
-           this.positions[i][1][1]++;
-           this.positions[i][2][1]++;
-           this.positions[i][3][1]++;
-           //console.log(this.bottom);
-           
+            this.positions[i][0][1]++;
+            this.positions[i][1][1]++;
+            this.positions[i][2][1]++;
+            this.positions[i][3][1]++;
+            //console.log(this.bottom);
+
         }
         this.bottom++;
     };
+
+    this.drop = function (botm) {
+        for (var i = 0; i < this.positions.length; i++) {
+            this.positions[i][0][1] = botm;
+            this.positions[i][1][1] = botm;
+            this.positions[i][2][1] = botm;
+            this.positions[i][3][1] = botm;
+            //console.log(this.bottom);
+
+        }
+        this.bottom = botm;
+    }
 
     this.rotate = function (direction) {
         if (direction === 0) {
@@ -58,7 +86,7 @@ function block(board, colour) {
     };
 
     this.draw = function (ctx) {
-        
+
         for (var i = 0; i < this.positions[this.position].length; i++) {
 
             ctx.fillStyle = "rgb(" + this.colour[0] + ", " + this.colour[1] + ", " + this.colour[2] + ")";

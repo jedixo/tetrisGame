@@ -29,16 +29,19 @@ window.onload = function () {
 
         if (key === 37) {
             //direction = 'w';
+            blocks[blocks.length - 1].move(0);
             //go left
         } else if (key === 38) {
             blocks[blocks.length - 1].rotate(0);
         } else if (key === 39) {
             //direction = 'e';
+            blocks[blocks.length - 1].move(1);
             //go right
         } else if (key === 40) {
             blocks[blocks.length - 1].rotate(1);
         } else if (key === 32) {
             //drop to bottom
+            blocks[blocks.length - 1].drop(board[0].length - 1);
         }
     }
 
